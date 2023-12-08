@@ -98,16 +98,19 @@ public class JobData {
         ArrayList<HashMap<String, String>> output = new ArrayList<>();
         for (HashMap<String, String> row : allJobs) {
             for (String jobString : row.values()) {
+
                 if (jobString.toUpperCase().contains(value.toUpperCase())) {
+                //TODO: make case insensitive here so that the output is not affected
                     output.add(row);
+
                     break;
                     // TODO - implement this method and replace "null" with something else
-                    //TODO: make case insensitive here so that the output is not affected
+
 
                 }
             }
         }
-        return output;
+            return output;
     }
 
     /**

@@ -121,16 +121,16 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        //TODO: Expect "No Results" when empty
-        //TODO: Expect the results when not empty, have loop go, recommended nested loop through HashMap
-            //jobs.keySet() to return the keys of the HashMap, then format to satisfy test
-            //print vs println: print will not have line after
 
+        //TODO: Expect "No Results" when empty
         if (someJobs.isEmpty()) {
             System.out.print("No Results");
+            //print vs println: print will not have line after
         } else {
+            //TODO: Expect the results when not empty, have loop go, recommended nested loop through HashMap
             for (HashMap<String, String> jobs: someJobs) {
                 System.out.println("\n*****");
+                //jobs.keySet() to return the keys of the HashMap, then format to satisfy test
                 for (String jobString : jobs.keySet()) {
                     System.out.println(jobString + ": " + jobs.get(jobString));
                 }
