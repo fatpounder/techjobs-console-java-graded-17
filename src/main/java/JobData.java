@@ -74,7 +74,7 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
-            //Need .toUpperCase here as well for it to work
+            //TODO: Need .toUpperCase here as well for it to work (where comparisons happen)
             if (aValue.toUpperCase().contains(value.toUpperCase())) {
                 jobs.add(row);
             }
@@ -97,10 +97,11 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         for (HashMap<String, String> row : allJobs) {
+            //TODO: Use row because column is the given terms
             for (String jobString : row.values()) {
 
                 if (jobString.toUpperCase().contains(value.toUpperCase())) {
-                //TODO: make case insensitive here
+                //TODO: make case insensitive here (where comparisons happen)
                     jobs.add(row);
 
                     break;
@@ -111,6 +112,7 @@ public class JobData {
             }
         }
         return jobs;
+        //TODO: It's making a new ArrayList when you search, then it goes away
     }
 
     /**
