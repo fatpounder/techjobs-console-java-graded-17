@@ -60,8 +60,8 @@ public class JobData {
      * For example, searching for employer "Enterprise" will include results
      * with "Enterprise Holdings, Inc".
      *
-     * @param column Column that should be searched.
-     * @param value  Value of teh field to search for
+     * @param column Column that should be searched. (location, skill, etc)
+     * @param value  Value of the field to search for
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
@@ -75,7 +75,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toUpperCase().contains(value.toUpperCase())) {
                 jobs.add(row);
             }
         }
@@ -95,13 +95,13 @@ public class JobData {
         //leave loadData() as first line of the method
         loadData();
 
-        ArrayList<HashMap<String, String>> output = new ArrayList<>();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         for (HashMap<String, String> row : allJobs) {
             for (String jobString : row.values()) {
 
                 if (jobString.toUpperCase().contains(value.toUpperCase())) {
-                //TODO: make case insensitive here so that the output is not affected
-                    output.add(row);
+                //TODO: make case insensitive here
+                    jobs.add(row);
 
                     break;
                     // TODO - implement this method and replace "null" with something else
@@ -110,7 +110,7 @@ public class JobData {
                 }
             }
         }
-            return output;
+        return jobs;
     }
 
     /**
