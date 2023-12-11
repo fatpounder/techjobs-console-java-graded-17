@@ -74,7 +74,7 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
-
+            //Need .toUpperCase here as well for it to work
             if (aValue.toUpperCase().contains(value.toUpperCase())) {
                 jobs.add(row);
             }
